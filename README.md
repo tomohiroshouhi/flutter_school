@@ -1,4 +1,4 @@
-# test_prog
+# flutter_school
 
 A new Flutter application.
 

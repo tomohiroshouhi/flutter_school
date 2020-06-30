@@ -1,4 +1,4 @@
-package com.test.firstapp.test_prog
+package com.flutter_school
 
 import io.flutter.embedding.android.FlutterActivity
 
