@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final myFocusNode = FocusNode();
   final myController = TextEditingController();
+  final items = List<String>.generate(10000, (i) => 'item $i');
 
   userData UserData;
 
@@ -56,68 +57,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: ListView(
-          children: <Widget>[
-            ListTile(
-              leading: Icon(Icons.info),
-              title: Text('お問い合わせ'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // ToDo:画面遷移
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NextPage('松扉さん'),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('Album'),
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
-            ),
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text('Map'),
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('Album'),
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
-            ),
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text('Map'),
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('Album'),
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
-            ),
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text('Map'),
-            ),
-            ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('Album'),
-            ),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
-            ),
-            Text('松扉さん'),
-          ],
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile (
+              title: Text('${items[index]}'),
+            );
+          },
         )
       ),
       floatingActionButton: FloatingActionButton(
