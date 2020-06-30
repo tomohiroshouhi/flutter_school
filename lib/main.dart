@@ -57,14 +57,22 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return ListTile (
-              title: Text('${items[index]}'),
+        child: GridView.count(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this produces 2 rows.
+          crossAxisCount: 3,
+          // Generate 100 widgets that display their index in the List.
+          children: List.generate(100, (index) {
+            return Column(
+              children: <Widget>[
+                Expanded(
+                  child: Image.asset('images/test_img1.jpg')
+                ),
+                Text('Ichiro $index'),
+              ],
             );
-          },
-        )
+          }),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
