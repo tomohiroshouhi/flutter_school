@@ -56,63 +56,69 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: Column(
+        child: ListView(
           children: <Widget>[
-            //Image.network('https://pbs.twimg.com/profile_images/1228580158124122112/8-4y_x2k_400x400.jpg'),
-            //Image.asset('images/test_img1.jpg'),
-            TextFormField(
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              decoration: InputDecoration(
-                  labelText: '名前を入れてください',
-                hintText: '田中太郎',
-              ),
-              onChanged: (text) {
-                UserData.name = text;
-              },
-            ),
-            TextField(
-              controller: myController,
-              focusNode: myFocusNode,
-              decoration: InputDecoration(
-                labelText: '趣味を入れてください',
-                hintText: '釣り',
-              ),
-              onChanged: (text) {
-                UserData.syumi = text;
-              },
-            ),
-            RaisedButton(
-              child:Text('新規登録する'),
-              onPressed: () async {
-                showDialog(
-                    context: context,
-                  builder: (context) {
-                      return AlertDialog(
-                        content: Text(myController.text),
-                      );
-                  }
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('お問い合わせ'),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                // ToDo:画面遷移
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NextPage('松扉さん'),
+                  ),
                 );
-                //ここに押したら反応するイベントを書く
-                // TODO:ここにフォーカスイベントをかく。
-                //myFocusNode.requestFocus();
-//                // TODO:画面遷移のイベントをかく
-//                final result = await Navigator.push(
-//                  context,
-//                  MaterialPageRoute(
-//                      builder: (context) => NextPage('日本晴')
-//                  ),
-//                );
-                //NextMessage = NextMessage + result;
-                //print(result);
               },
             ),
+            ListTile(
+              leading: Icon(Icons.photo_album),
+              title: Text('Album'),
+            ),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text('Map'),
+            ),
+            ListTile(
+              leading: Icon(Icons.photo_album),
+              title: Text('Album'),
+            ),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text('Map'),
+            ),
+            ListTile(
+              leading: Icon(Icons.photo_album),
+              title: Text('Album'),
+            ),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Phone'),
+            ),
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text('Map'),
+            ),
+            ListTile(
+              leading: Icon(Icons.photo_album),
+              title: Text('Album'),
+            ),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text('Phone'),
+            ),
+            Text('松扉さん'),
           ],
-        ),
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
