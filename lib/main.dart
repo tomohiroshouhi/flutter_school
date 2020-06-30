@@ -57,21 +57,30 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: GridView.count(
-          // Create a grid with 2 columns. If you change the scrollDirection to
-          // horizontal, this produces 2 rows.
-          crossAxisCount: 3,
-          // Generate 100 widgets that display their index in the List.
-          children: List.generate(100, (index) {
-            return Column(
-              children: <Widget>[
-                Expanded(
-                  child: Image.asset('images/test_img1.jpg')
-                ),
-                Text('Ichiro $index'),
-              ],
-            );
-          }),
+        child: ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Container(
+            child: Image.asset('images/test_img1.jpg'),
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.blue,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.green,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.orange,
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
